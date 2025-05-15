@@ -1,0 +1,19 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+}
+
+.nav-link {
+  color: #004b74;
+  font-weight: 500;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #004b74;
+  border-bottom: 2px solid #004b74;
+}
+
+header h3 {
+  color: #0077b6;
+}
