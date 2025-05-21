@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,17 @@
   <title>Welcome to Abdu Rahiman Nagar</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <style>
+    /* Custom Color Variables for Gray Theme */
+    :root {
+      --dark-gray: #2D3748; /* Primary for nav, footer, dark sections */
+      --medium-gray: #4A5568; /* Secondary for text, borders */
+      --light-gray: #EDF2F7; /* Background for light sections */
+      --soft-white: #F7FAFC; /* Background for cards */
+      --accent-blue: #4299E1; /* Muted blue for links, buttons, hover effects */
+      --text-dark: #1A202C; /* Dark text for readability */
+      --text-light: #FFFFFF; /* White text for dark backgrounds */
+    }
+
     /* Custom Animations */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
@@ -113,56 +125,128 @@
     section > *:nth-child(3) {
       animation-delay: 0.4s;
     }
+
+    /* Gray Theme Styles */
+    body {
+      background-color: var(--light-gray);
+      color: var(--text-dark);
+    }
+
+    nav {
+      background-color: var(--dark-gray);
+    }
+
+    nav a:hover {
+      color: var(--accent-blue);
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, var(--dark-gray) 0%, var(--medium-gray) 100%);
+    }
+
+    .highlight-section, .people-section {
+      background-color: var(--dark-gray);
+    }
+
+    .highlight-section h2, .people-section h2 {
+      color: var(--text-light);
+    }
+
+    .card {
+      background-color: var(--soft-white);
+      border: 1px solid var(--medium-gray);
+    }
+
+    .card:hover {
+      border-color: var(--accent-blue);
+    }
+
+    button, .btn {
+      background-color: var(--medium-gray);
+      color: var(--text-light);
+    }
+
+    button:hover, .btn:hover {
+      background-color: var(--accent-blue);
+    }
+
+    a {
+      color: var(--accent-blue);
+    }
+
+    a:hover {
+      color: var(--medium-gray);
+    }
+
+    footer {
+      background-color: var(--dark-gray);
+    }
+
+    /* Respect Reduced Motion Preference */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-in,
+      .animate-slide-in,
+      .scroll-animate {
+        animation: none;
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
   </style>
 </head>
-<body class="font-sans bg-gray-100">
+<body class="font-sans">
   <!-- Navigation Bar -->
-  <nav class="bg-gray-800 text-white p-4 sticky top-0 z-10">
+  <nav class="text-white p-4 sticky top-0 z-10">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
       <h1 class="text-xl font-bold">Abdu Rahiman Nagar</h1>
       <ul class="flex space-x-4">
-        <li><a href="#about" class="hover:text-blue-300">About</a></li>
-        <li><a href="#highlights" class="hover:text-blue-300">Highlights</a></li>
-        <li><a href="#shops" class="hover:text-blue-300">Shops</a></li>
-        <li><a href="#trees" class="hover:text-blue-300">Trees</a></li>
-        <li><a href="#people" class="hover:text-blue-300">People</a></li>
-        <li><a href="#facilities" class="hover:text-blue-300">Facilities</a></li>
-        <li><a href="#contact" class="hover:text-blue-300">Contact</a></li>
+        <li><a href="#home" class="hover:text-accent-blue">Home</a></li>
+        <li><a href="#about" class="hover:text-accent-blue">About</a></li>
+        <li><a href="#highlights" class="hover:text-accent-blue">Highlights</a></li>
+        <li><a href="#shops" class="hover:text-accent-blue">Shops</a></li>
+        <li><a href="#trees" class="hover:text-accent-blue">Trees</a></li>
+        <li><a href="#people" class="hover:text-accent-blue">People</a></li>
+        <li><a href="#facilities" class="hover:text-accent-blue">Facilities</a></li>
+        <li><a href="#contact" class="hover:text-accent-blue">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero Section / Image Carousel -->
-  <section class="relative h-screen overflow-hidden" id="home">
+  <section class="relative h-screen overflow-hidden hero-section" id="home">
     <div class="absolute inset-0">
       <img src="https://c8.alamy.com/comp/2W9RTJ1/chaliyar-river-and-bridge-in-edavanna-malappuram-2W9RTJ1.jpg" class="carousel-image" alt="Chaliyar River" />
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Kodakallu%40AR_nagar_Village.jpg/1200px-Kodakallu%40AR_nagar_Village.jpg" class="carousel-image" alt="Kodakallu" />
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnPMpuSB2cfxMmiDLS1wNynC3SGa3vBjOlUA&s" class="carousel-image" alt="Village Scenery" />
     </div>
-    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center">
       <h1 class="text-white hero-text font-bold animate-fade-in" aria-label="Welcome to Abdu Rahiman Nagar">Welcome to Abdu Rahiman Nagar</h1>
+      <a href="#about" class="btn mt-6 px-6 py-3 rounded hover-scale pulse text-lg">Explore Now</a>
     </div>
   </section>
 
-  <!-- About the Village -->
-  <section class="py-16 px-4 max-w-5xl mx-auto bg-white scroll-animate" id="about">
-    <h2 class="text-3xl font-bold mb-6">About Abdu Rahiman Nagar</h2>
-    <p class="mb-4">The name Abdu Rahiman Nagar came from the name of freedom fighter Mohammed Abdul Rahiman. A.R. Nagar village connects to other parts of India through Parappanangadi town. National highway No.66 passes through A.R. Nagar and the northern stretch connects to Goa and Mumbai. The southern stretch connects to Cochin and Trivandrum. State Highway No28 starts from Nilambur and connects to Ooty, Mysore, and Bangalore through Highways 12, 29, and 181. The nearest airport is at Kozhikode. The nearest major railway station is at Parappanangadi.</p>
+  <!-- About Section -->
+  <section class="py-16 px-4 max-w-5xl mx-auto scroll-animate" id="about">
+    <h2 class="text-3xl font-bold mb-6 animate-fade-in">About Abdu Rahiman Nagar</h2>
+    <div class="paragraph-container animate-slide-in hover-scale card">
+      <p class="mb-4">The name Abdu Rahiman Nagar came from the name of freedom fighter Mohammed Abdul Rahiman. A.R. Nagar village connects to other parts of India through Parappanangadi town. National highway No.66 passes through A.R. Nagar and the northern stretch connects to Goa and Mumbai. The southern stretch connects to Cochin and Trivandrum. State Highway No28 starts from Nilambur and connects to Ooty, Mysore, and Bangalore through Highways 12, 29, and 181. The nearest airport is at Kozhikode. The nearest major railway station is at Parappanangadi.</p>
+    </div>
   </section>
 
   <!-- Village Highlights -->
-  <section class="py-16 px-4 scroll-animate" style="background-color: rgb(61, 58, 58);" id="highlights">
-    <h2 class="text-3xl font-bold mb-8 text-center text-white">Abdu Rahiman Nagar</h2>
+  <section class="py-16 px-4 scroll-animate highlight-section" id="highlights">
+    <h2 class="text-3xl font-bold mb-8 text-center">Abdu Rahiman Nagar</h2>
     <div class="section-grid max-w-6xl mx-auto">
-      <div class="bg-gray-100 p-6 rounded shadow hover-scale">
+      <div class="p-6 rounded shadow hover-scale card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Kodakallu%40AR_nagar_Village.jpg/1200px-Kodakallu%40AR_nagar_Village.jpg" alt="Kodakallu" class="w-full h-40 object-cover rounded mb-4">
         <h3 class="text-xl font-semibold">Kodakallu</h3>
       </div>
-      <div class="bg-gray-100 p-6 rounded shadow hover-scale">
+      <div class="p-6 rounded shadow hover-scale card">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT84-yu8_PBd5Xmydo6LWULzxVK3_wWxoSCrMSr7mKVciHieSwIptr8&usqp=CAE&s" alt="Field" class="w-full h-40 object-cover rounded mb-4">
         <h3 class="text-xl font-semibold">Field</h3>
       </div>
-      <div class="bg-gray-100 p-6 rounded shadow hover-scale">
+      <div class="p-6 rounded shadow hover-scale card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/A.R.Nagar.Kolappuram.jpg/330px-A.R.Nagar.Kolappuram.jpg" alt="Kolappuram" class="w-full h-40 object-cover rounded mb-4">
         <h3 class="text-xl font-semibold">Kolappuram</h3>
       </div>
@@ -170,18 +254,18 @@
   </section>
 
   <!-- Local Businesses and Services -->
-  <section class="py-16 bg-white px-4 scroll-animate" id="shops">
+  <section class="py-16 px-4 scroll-animate" id="shops">
     <h2 class="text-3xl font-bold mb-8 text-center">Shops and Restaurants</h2>
     <div class="section-grid max-w-6xl mx-auto">
-      <div class="bg-gray-100 p-4 rounded shadow hover-scale">
+      <div class="p-4 rounded shadow hover-scale card">
         <img src="https://lh3.googleusercontent.com/p/AF1QipOLSPj4TyDlYhfM9N4r5lSANAOiIwYm7BDSvAlL=s680-w680-h510-rw" class="h-40 w-full object-cover rounded mb-2" alt="Clairo Shop">
         <h3 class="text-xl font-semibold">Clairo Shop</h3>
         <p>Clothing Shop</p>
         <p>Contact: 392794057</p>
       </div>
-      <div class="bg-gray-100 p-4 rounded shadow hover-scale">
+      <div class="p-4 rounded shadow hover-scale card">
         <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4noE5tT-_0rigPHc4JQKurUUpxWiNUymiCMC3dS3sNbHiBjue1bwd247uzGcmaIRSxAT56G3oqBERx0qcyxmesfjVjDCrN_qHfe-H_zvpBEm2rfyaJull79FA2yxO_nNVl4h52U=s680-w680-h510-rw" class="h-40 w-full object-cover rounded mb-2" alt="Village Spice Restaurant">
-        <h3 class="text-xl font-semibold">Village Spice Restaurant</h3>
+        <h3 class="text-xl font-semibold">New Look</h3>
         <p>Local Cuisine</p>
         <p>Contact: 9633297817</p>
       </div>
@@ -189,27 +273,27 @@
   </section>
 
   <!-- Notable Trees -->
-  <section class="py-16 bg-white px-4 scroll-animate" id="trees">
+  <section class="py-16 px-4 scroll-animate" id="trees">
     <h2 class="text-3xl font-bold mb-8 text-center">Notable Trees</h2>
     <div class="section-grid max-w-6xl mx-auto">
-      <div class="bg-gray-100 p-4 rounded shadow hover-scale">
+      <div class="p-4 rounded shadow hover-scale card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/A.R.Nagar.Kolappuram.jpg/330px-A.R.Nagar.Kolappuram.jpg" class="h-40 w-full object-cover rounded mb-2" alt="Tree in Kolappuram">
       </div>
-      <div class="bg-gray-100 p-4 rounded shadow hover-scale">
+      <div class="p-4 rounded shadow hover-scale card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Kolappuram.1.jpg/960px-Kolappuram.1.jpg" class="h-40 w-full object-cover rounded mb-2" alt="Tree in Kolappuram">
       </div>
     </div>
   </section>
 
   <!-- Notable People -->
-  <section class="py-16 px-4 scroll-animate" style="background-color: rgb(61, 58, 58);" id="people">
-    <h2 class="text-3xl font-bold mb-8 text-center text-white">Notable People</h2>
+  <section class="py-16 px-4 scroll-animate people-section" id="people">
+    <h2 class="text-3xl font-bold mb-8 text-center">Notable People</h2>
     <div class="section-grid max-w-4xl mx-auto">
-      <div class="bg-gray-100 p-4 rounded shadow hover-scale">
+      <div class="p-4 rounded shadow hover-scale card">
         <h3 class="text-xl font-semibold">Dr. Anas</h3>
         <p>Kids Doctor</p>
       </div>
-      <div class="bg-gray-100 p-4 rounded shadow hover-scale">
+      <div class="p-4 rounded shadow hover-scale card">
         <h3 class="text-xl font-semibold">Kadar</h3>
         <p>Businessman</p>
       </div>
@@ -217,18 +301,18 @@
   </section>
 
   <!-- Local Facilities -->
-  <section class="py-16 bg-white px-4 scroll-animate" id="facilities">
+  <section class="py-16 px-4 scroll-animate" id="facilities">
     <h2 class="text-3xl font-bold mb-8 text-center">Local Facilities</h2>
     <div class="section-grid max-w-6xl mx-auto">
-      <div class="bg-gray-100 p-4 rounded shadow hover-scale">
+      <div class="p-4 rounded shadow hover-scale card">
         <h3 class="text-xl font-semibold">Kuttur Primary School</h3>
         <p>Open: 9AM - 4PM | Contact: 6835893245</p>
       </div>
-      <div class="bg-gray-100 p-4 rounded shadow hover-scale">
+      <div class="p-4 rounded shadow hover-scale card">
         <h3 class="text-xl font-semibold">Community Health Center</h3>
         <p>Open: 8AM - 6PM | Contact: 43372424234</p>
       </div>
-      <div class="bg-gray-100 p-4 rounded shadow hover-scale">
+      <div class="p-4 rounded shadow hover-scale card">
         <h3 class="text-xl font-semibold">Bank SBI</h3>
         <p>Open: 10AM - 5PM | Contact: 1953896948</p>
       </div>
@@ -236,7 +320,7 @@
   </section>
 
   <!-- Contact and Visitor Info -->
-  <section class="py-16 bg-gray-100 px-4 scroll-animate" id="contact">
+  <section class="py-16 px-4 scroll-animate" id="contact">
     <h2 class="text-3xl font-bold mb-8 text-center">Contact & Visitor Info</h2>
     <div class="max-w-4xl mx-auto">
       <iframe src="https://en.wikipedia.org/wiki/Abdu_Rahman_Nagar#/map/0" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" title="Map of Abdu Rahiman Nagar"></iframe>
@@ -244,19 +328,19 @@
         <input type="text" placeholder="Your Name" class="p-2 border rounded animate-slide-in" required aria-required="true">
         <input type="email" placeholder="Your Email" class="p-2 border rounded animate-slide-in" required aria-required="true">
         <textarea placeholder="Your Message" class="p-2 border rounded animate-slide-in" rows="5" required aria-required="true"></textarea>
-        <button class="bg-blue-500 text-white p-2 rounded hover-scale pulse" type="button" onclick="alert('Form submission not implemented yet!')">Send</button>
+        <button class="btn p-2 rounded hover-scale pulse" type="button" onclick="alert('Form submission not implemented yet!')">Send</button>
       </form>
       <div class="mt-6 animate-slide-in">
-        <p>Email: <a href="mailto:contact@abdurahimannagar.com" class="text-blue-500">contact@abdurahimannagar.com</a></p>
-        <p>Follow us: <a href="#" class="text-blue-500" aria-label="Facebook">Facebook</a>, <a href="#" class="text-blue-500" aria-label="Instagram">Instagram</a></p>
+        <p>Email: <a href="mailto:contact@abdurahimannagar.com" class="text-accent-blue">contact@abdurahimannagar.com</a></p>
+        <p>Follow us: <a href="#" class="text-accent-blue" aria-label="Facebook">Facebook</a>, <a href="#" class="text-accent-blue" aria-label="Instagram">Instagram</a></p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6">
+  <footer class="text-white py-6">
     <div class="max-w-6xl mx-auto text-center">
-      <p>&copy; 2025 Abdu Rahiman Nagar. All rights reserved.</p>
+      <p>© 2025 Abdu Rahiman Nagar. All rights reserved.</p>
       <p class="mt-2">Designed with ❤️ for our community</p>
     </div>
   </footer>
@@ -284,3 +368,4 @@
   </script>
 </body>
 </html>
+```
